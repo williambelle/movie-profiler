@@ -7,6 +7,7 @@ var fs = require('fs');
 var cradle = require('cradle');
 var colors = require('colors');
 var config = require('../configuration/configuration');
+var docs   = require('../design_docs');
 
 var connection = new(cradle.Connection)();
 var db = connection.database(config.db.name);
@@ -20,6 +21,7 @@ db.exists(function (err, exists) {
 		console.log('Creating database'.green);
 		db.create();
 		addMovies();
+		createView();
 	}
 });
 
@@ -35,12 +37,18 @@ function addMovies(){
 		content = JSON.parse(content);
 		
 		// insert movie in couchDB
-		db.save(content.id.toString(), content, saveCouchDBError);
+		db.save(content.id.toString(), content, couchDBError);
 	}
 }
 
-function saveCouchDBError(err, res){
+function couchDBError(err, res){
 	if (err){
 		console.log('Error : ', err);
+	}
+}
+
+function createView(){
+	for (var doc in docs) {
+		db.save(docs[doc]._id, docs[doc].views);
 	}
 }

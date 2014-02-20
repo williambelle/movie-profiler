@@ -1,0 +1,1 @@
+exports.actors = require("./actors");
