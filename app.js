@@ -8,6 +8,8 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var cradle = require('cradle');
+var config = require('./configuration/configuration');
 
 var app = express();
 
@@ -22,6 +24,13 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+// couchdb
+var connection = new(cradle.Connection)();
+var db = connection.database(config.db.name);
+
+//"setup"
+express.request.db = express.response.db = db;
 
 // development only
 if ('development' == app.get('env')) {
