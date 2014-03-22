@@ -6,7 +6,11 @@ module.exports = {
 		titles : {
 
 			map : function(doc) {
-				emit(doc.title, [doc.duration, doc.year, doc.rating]);
+				emit(doc.title, {
+					duration : doc.duration, 
+					year : doc.year, 
+					rating : doc.rating
+				});
 			}
 		}
 
