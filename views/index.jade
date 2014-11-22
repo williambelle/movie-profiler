@@ -1,30 +1,64 @@
 extends layout
 
 block content
-	#page-wrapper
-		.row
-			.col-lg-12
-				h1(class='page-header')
+	aside.right-side
+		section.content-header
+			h1
+				| Dashboard
+			ol.breadcrumb
+				li
+					a(href='#')
+						i.fa.fa-dashboard
+						| Home
+				li.active
 					| Dashboard
-		.row
-			.col-lg-12
-				.panel.panel-default
-					.panel-heading
-						| All movies
-					.panel-body
-						.table-responsive
-							table(class='table table-striped table-bordered table-hover', id='allMovies')
-								thead
-									tr
-										th Title
-										th.center Year
-										th.center Duration
-										th.center Rating
-								tbody
-									each item in table
-										tr
-											td= item.title
-											td.center= item.year
-											td.right= item.duration
-												|  min
-											td.center= item.rating
+		section.content
+			.row
+				.col-lg-3.col-xs-6
+					.small-box.bg-aqua
+						.inner
+							h3
+								=nbMovie
+							p
+								| Films
+						.icon
+							i.ion.ion-film-marker
+						a(href='#', class='small-box-footer')
+							| More info 
+							i.fa.fa-arrow-circle-right
+				.col-lg-3.col-xs-6
+					.small-box.bg-purple
+						.inner
+							h3
+								=myrating
+							p
+								| Average Rating
+						.icon
+							i.ion.ion-stats-bars
+						a(href='#', class='small-box-footer')
+							| More info 
+							i.fa.fa-arrow-circle-right
+				.col-lg-3.col-xs-6
+					.small-box.bg-green
+						.inner
+							h3
+								=nbGenre
+							p
+								| Genres
+						.icon
+							i.ion.ion-bookmark
+						a(href='#', class='small-box-footer')
+							| More info 
+							i.fa.fa-arrow-circle-right
+				.col-lg-3.col-xs-6
+					.small-box.bg-yellow
+						.inner
+							h3
+								=nbTopic
+							p
+								| Topics
+						.icon
+							i.ion.ion-pricetag
+						a(href='#', class='small-box-footer')
+							| More info 
+							i.fa.fa-arrow-circle-right

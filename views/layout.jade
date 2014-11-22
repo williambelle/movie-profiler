@@ -2,21 +2,16 @@ doctype html
 html
 	head
 		title= title
-		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-		link(rel='stylesheet', href='/font-awesome/css/font-awesome.css')
-		link(rel='stylesheet', href='/stylesheets/dataTables/dataTables.bootstrap.css')
-		link(rel='stylesheet', href='/stylesheets/sb-admin.css')
-	body
+		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+		link(rel='stylesheet', href='/css/lib/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/lib/font-awesome.min.css')
+		link(rel='stylesheet', href='/css/lib/ionicons.min.css')
+		link(rel='stylesheet', href='/css/lib/AdminLTE.css')
+	body.skin-blue
 		include navbar-top
-		include navbar-left
-		block content
-		script(src='/javascripts/jquery-1.10.2.min.js')
-		script(src='/javascripts/bootstrap.min.js')
-		script(src='/javascripts/plugins/metisMenu/jquery.metisMenu.js')
-		script(src='/javascripts/plugins/dataTables/jquery.dataTables.js')
-		script(src='/javascripts/plugins/dataTables/dataTables.bootstrap.js')
-		script(src='/javascripts/sb-admin.js')
-		script.
-			$(document).ready(function() {
-				$('#allMovies').dataTable();
-			});
+		.wrapper.row-offcanvas.row-offcanvas-left
+			include navbar-left
+			block content
+		script(src='/js/lib/jquery-2.1.1.min.js')
+		script(src='/js/lib/bootstrap.min.js')
+		script(src='/js/app.js')

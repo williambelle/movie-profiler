@@ -1,13 +1,14 @@
-nav(class='navbar-default navbar-static-side', role='navigation')
-	.sidebar-collapse
-		ul(class='nav', id='side-menu')
-			li.sidebar-search
-				.input-group.custom-search-form
-					input(type='text', class='form-control', placeholder='Search...')
-					span.input-group-btn
-						button(class='btn btn-default', type='button')
-							i.fa.fa-search
-			li
+aside.left-side.sidebar-offcanvas
+	section.sidebar
+		form(action='#', method='get' class='sidebar-form')
+			.input-group
+				input(type='text', name='q', class='form-control', placeholder='Search...')
+				span.input-group-btn
+					button(type='submit', name='search', id='search-btn', class='btn btn-flat')
+					i.fa.fa-search
+		ul.sidebar-menu
+			li.active
 				a(href='/')
-					i.fa.fa-dashboard.fa-fw
-						| &nbsp;Dashboard
+					i.fa.fa-dashboard
+					span
+						| Dashboard
