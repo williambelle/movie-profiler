@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	aside.right-side
+		section.content-header
+			h1
+				| Genre
+			ol.breadcrumb
+				li
+					a(href='/')
+						i.fa.fa-dashboard
+						| Home
+				li.active
+					| Genre
+		section.content
+			.row
+				.col-md-12
+					.box.box-primary
+						.box-header
+							h3.box-title
+								| Movie by genre
+						.box-body.chart-responsive
+							div(class='chart', id='bar-chart', style='height: 300px;')
+	script.
+		(function($){
+			$(function() {
+				"use strict";
+		
+				//BAR CHART
+				var bar = new Morris.Bar({
+				element: 'bar-chart',
+				resize: true,
+				data: !{data},
+				barColors: ['#a0d0e0'],
+				xkey: 'key',
+				ykeys: ['value'],
+				labels: ['Movies'],
+				hideHover: 'auto'
+				});
+			});
+		})(jQuery);

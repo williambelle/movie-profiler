@@ -6,12 +6,16 @@ html
 		link(rel='stylesheet', href='/css/lib/bootstrap.min.css')
 		link(rel='stylesheet', href='/css/lib/font-awesome.min.css')
 		link(rel='stylesheet', href='/css/lib/ionicons.min.css')
+		link(rel='stylesheet', href='/css/lib/morris.css')
 		link(rel='stylesheet', href='/css/lib/AdminLTE.css')
+		script(src='/js/lib/jquery-2.1.1.min.js')
 	body.skin-blue
 		include navbar-top
 		.wrapper.row-offcanvas.row-offcanvas-left
 			include navbar-left
 			block content
-		script(src='/js/lib/jquery-2.1.1.min.js')
+		
 		script(src='/js/lib/bootstrap.min.js')
+		script(src='/js/lib/raphael.min.js')
+		script(src='/js/lib/morris.min.js')
 		script(src='/js/app.js')

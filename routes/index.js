@@ -27,6 +27,6 @@ exports.index = function(req, res){
 		}
 	], function(err, data){
 		
-		res.render('index', {nbMovie : data[0], nbGenre: data[1], nbTopic: data[2], myrating: data[3]});
+		res.render('index', {activeTab: 'Dashboard', nbMovie : data[0], nbGenre: data[1], nbTopic: data[2], myrating: data[3]});
 	});
 };

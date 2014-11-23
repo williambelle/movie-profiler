@@ -7,8 +7,10 @@ aside.left-side.sidebar-offcanvas
 					button(type='submit', name='search', id='search-btn', class='btn btn-flat')
 					i.fa.fa-search
 		ul.sidebar-menu
-			li.active
-				a(href='/')
-					i.fa.fa-dashboard
-					span
-						| Dashboard
+			- menuList = [{key : "Dashboard", class : "fa fa-dashboard", href : "/"}, {key : "Genre", class : "ion ion-bookmark", href : "/genre"}]
+			- for (var i=0; i < menuList.length; i++)
+				li(class=(menuList[i].key===activeTab ? 'active' : ''))
+					a(href='#{menuList[i].href}')
+						i(class='#{menuList[i].class}')
+						span
+							| #{menuList[i].key}
